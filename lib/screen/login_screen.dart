@@ -74,8 +74,10 @@ class _LoginScreenState extends State<LoginScreen> {
       );
 
   List<Widget> _buildGoogleSignInFields() => [
-        RaisedButton(
-          padding: const EdgeInsets.all(0),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.all(0),
+          ),
           onPressed: _signInWithGoogle,
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -88,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ],
           ),
         ),
-        FlatButton(
+        TextButton(
           child: Text('Sign in with email'),
           onPressed: () => setState(() {
             _useEmailSignIn = true;
@@ -122,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
         const SizedBox(height: 16),
         _buildEmailSignInButton(),
         if (_loggingIn) const LinearProgressIndicator(),
-        FlatButton(
+        TextButton(
           child: Text('Use Google Sign In'),
           onPressed: () => setState(() {
             _useEmailSignIn = false;
@@ -130,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ];
 
-  Widget _buildEmailSignInButton() => RaisedButton(
+  Widget _buildEmailSignInButton() => ElevatedButton(
         onPressed: _signInWithEmail,
         child: Container(
           height: 40,
